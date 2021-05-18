@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 假设设计稿宽度为750px */
+    body{
+      margin: 0;
+    }
+    html{
+      /* 
+        1、设置视口
+          750(px)/25(rem) =30(px)
+       */
+      font-size: 4vw; /* 30px */
+    }
+    .box{
+      width: 8.3333334rem; /*250px*/
+      height: 100px;
+      background-color: #899;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box-js"></div>
+  <!-- <script>
+    // js解决vw的兼容性问题 - 切换虚拟设备需要刷新页面才能生效
+    let RootEl = document.documentElement
+    let Vwidth = window.innerWidth
+    RootEl.style.fontSize = Vwidth/100*4 + 'px'
+  </script> -->
+</body>
+</html>

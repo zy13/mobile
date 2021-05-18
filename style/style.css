@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+}
+html {
+  font-size: 4vw;
+  /*750/@rem 30/@rem*/
+}
+html .box {
+  width: 25rem;
+  height: 18.46666667rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  border-bottom: 0.06666667rem solid #eee;
+}
+html .box .item {
+  width: 5.33333333rem;
+  height: 5.33333333rem;
+}

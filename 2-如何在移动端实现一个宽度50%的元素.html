@@ -1,0 +1,41 @@
+<!-- 元素在任何位置宽度都是屏幕的50%：宽度和高度 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .main{
+      width: 300px;
+    }
+    .box{
+      /* 
+        直接设置元素为百分比不靠谱，
+        因为元素宽度是相对于父元素的宽度，而不是相对根元素的宽度
+        width: 50%; 
+       */
+      /* 
+        vw: viewport width, 相对于根元素（视口）宽度的比例
+        1vw: 1%的视口宽度
+        比如视口宽度为750px，1vw = 750 * 1% = 7.5px; 100vw = 750 * 100% = 750px
+       */
+       /* 
+        vh: 高度的1%，由于每个设备的高度都不一样，不好处理高度
+        */
+      width: 50vw;
+      height: 100px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="box"></div>
+  </div>
+</body>
+</html>

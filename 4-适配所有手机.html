@@ -1,0 +1,46 @@
+<!-- 
+  适配所有手机：
+  1、设置视口
+  2、设置页面拆分比例：比例由自己定
+     比如设计稿宽度为750，分成100分，那么每一份的宽度为 (750px/100=7.5px)
+     当设计稿中某个元素宽度为80px时，则该元素占 (80px/7.5=10.66666666667份)
+     一份等于1rem
+     这时候html元素的font-size也要设置为屏幕宽度的100分之一（即100vw/100=1vw）
+  3、去设计稿量元素的宽度，然后换算成分数
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html{
+      /* 
+        设备宽度 100vw
+        320px 32px = 1rem = 10vw
+        360px 36px = 1rem = 10vw
+       */
+      /* font-size: 10vw; */
+      font-size: 1vw;
+    }
+    body{
+      margin: 0;
+    }
+    .box{
+      /* width: 5rem; 使5rem为宽度50%，即为视口宽度/2 */
+      width: 50rem;
+      height: 300px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    已知box宽度为5rem,如何调整根元素的font-size使其宽度为50%
+    解决方法：将根元素字体大小设置为视口宽度的1/10
+   -->
+  <div class="box">666</div>
+</body>
+</html>

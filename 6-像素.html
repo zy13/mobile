@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .box{
+      height: 1px;
+      background: #0a0a0a;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="box" id="box"></div>
+
+<script>
+  box.style.transform = 'scale(1,'+ 1/window.devicePixelRatio +')';
+  document.querySelector('head').append('<meta name="viewport" content="width=device-width,initial-scale='+ 1/window.devicePixelRatio +'">')
+  // document.write()
+</script>
+
+一个物理像素就是一个发光二极管
+
+像素比：1  用一个物理像素显示一个逻辑像素
+       2  用4个物理像素显示一个逻辑像素
+       3  用9个物理像素显示一个逻辑像素
+       4  用16个物理像素显示一个逻辑像素
+
+为什么在手机上 1像素的线看起来会比较粗
+解决这个问题的思路：
+  1，让一个物理像素显示一个逻辑像素
+      性能问题：页面要操作的像素点更多了，如果要做动画的话，性能会受到影响
+  2，让线缩小
+      用js去操作dom,进行缩小
+      缺点就是如果要缩小的地方太多，那么可能会需要过多的操作dom
+  3，用图片（svg）
+
+</body>
+</html>

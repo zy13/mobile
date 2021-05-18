@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 600px;
+      height: 300px;
+      border: 1px solid #000;
+
+      /* 父元素设置flex样式 */
+      display: flex;
+
+      /* flex-direction 控制子项整体布局方向 row - 横向 column 纵向排列*/
+      /* flex-direction: row; 默认值-从左往右 */
+      /* flex-direction: row-reverse; 从右往左 */
+      /* flex-direction: column; 从上往下 */
+      /* flex-direction: column-reverse;  从下往上*/
+
+      /* justify-content 决定了水平方向子项的对齐和分布方式 */
+      /* justify-content: flex-start; 默认值 - 子元素位于父级的左边 */
+      /* justify-content: flex-end; 子元素位于父级的右边 */
+      /* justify-content: center; 子元素位于父级的中间 */
+      /* justify-content: space-around; 空间均等地分配在每个元素的左右两边，导致两个元素之间的空间比较大 */
+      /* justify-content: space-between; 空间会平分在每个元素之间 */
+      /* justify-content: space-evenly; 空间会平均分配在每个子元素之间，以及子元素和父级之间，每个子元素之间的间距是一样的 */
+
+      /* align-items-垂直方向-针对单行  */
+      /* align-items: flex-start; 默认值 顶部*/
+      /* align-items: flex-end; 底部 */
+      /* align-items: center; 垂直居中 */
+      /* align-items: stretch; */
+      /* align-items: baseline; */
+
+      /* 水平垂直居中 */
+      /* justify-content: center|space-between|space-evenly; */
+      /* align-items: center; */
+
+      flex-wrap: wrap; /*换行*/
+      /* flex-wrap: nowrap; 不换行 */
+      /* flex-wrap: wrap-reverse; 底部开始-并且逆向 */
+      /* 多行垂直方向上的设置 */
+      /* align-content: flex-start; 默认值 从上往下*/
+      /* align-content: flex-end; 从下往上 */
+      /* align-content: center; 垂直居中 */
+      align-content: space-around; 垂直方向上，富余空间均分在子项上下两侧，子项间距离较大
+      /* align-content: space-between; 垂直方向上，富余空间均分子项之间 */
+      /* align-content: space-evenly; 垂直方向上,富余空间均分在子项、子项与父级之间 */
+    }
+    .item{
+      width: 100px;
+      height: 100px;
+      background-color: #f9af4e;
+      font-size: 40px;
+      text-align: center;
+      color: #fff;
+      border: 1px solid #0aa5e2;
+    }
+    .item::after{
+      content: attr(data-num);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item" data-num="1"></div>
+    <div class="item" data-num="2"></div>
+    <div class="item" data-num="3"></div>
+    <div class="item" data-num="4"></div>
+    <div class="item" data-num="5"></div>
+    <div class="item" data-num="6"></div>
+    <div class="item" data-num="7"></div>
+    <div class="item" data-num="8"></div>
+    <div class="item" data-num="9"></div>
+    <div class="item" data-num="10"></div>
+  </div>
+<!-- 
+作用在父级身上的属性
+/*用来控制子项整体布局方向，是从左往右还是从右往左，是从上往下还是从下往上。*/
+`flex-direction`: row | row-reverse | column | column-reverse;
+
+/*用来控制子项整体单行显示还是换行显示，如果换行，则下面一行是否反方向显示。*/
+`flex-wrap`: nowrap | wrap | wrap-reverse;
+
+/*是flex-direction和flex-wrap的缩写*/
+`flex-flow`: <‘flex-direction’> || <‘flex-wrap’>
+
+/*属性决定了水平方向子项的对齐和分布方式*/
+`justify-content`: flex-start | flex-end | center | space-between | 
+                   space-around | space-evenly;
+
+/*子项们相对于flex容器在垂直方向上的对齐方式*/
+`align-items`: stretch | flex-start | flex-end | center | baseline;
+
+/*针对多行子项们相对于flex容器在垂直方向上的对齐方式*/
+`align-content`: stretch | flex-start | flex-end | center | 
+                 space-between | space-around | space-evenly; 
+-->
+</body>
+</html>
