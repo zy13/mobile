@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      background-color: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">这是一段文字</div>
+  <!-- href（一个默认的鼠标事件） -->
+  <a href="https://www.kaikebai.com">开课吧</a>
+  <div class="text">text文本</div>
+  <script>
+    let box = document.querySelector('.box')
+    let text = document.querySelector('.text')
+    box.addEventListener('touchstart', function(){
+      console.log('手指开始按下');
+    })
+    box.addEventListener('touchmove',function(){
+      console.log('手指移动');
+    })
+    box.addEventListener('touchend',function(e){
+      console.log('手指抬起');
+      this.style.display = 'none'
+      e.preventDefault() // 阻止默认事件
+      // 延迟执行mouse事件 - 解决事件穿透
+      // setTimeout(() => {
+      //   this.style.display = 'none'
+      // }, 100)
+    })
+
+    text.onclick = function() {
+      console.log('执行了text的点击事件');
+    }
+    /* 
+    事件穿透：
+    在移动端触碰元素时候，会立即执行元素的touch事情
+    然后记录触碰的坐标，延迟一段时间再从这个坐标上查找元素，
+    找到元素之后，如果元素有mouse事件，则执行mouse事件
+
+    解决方法：
+    1、不要在移动端使用mouse、click事件，包括a便签的href(一个默认的鼠标事件)
+    2、延迟执行mouse事件
+    3、阻止默认事件`e.preventDefault()`- 用的比较多
+    */
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    
+    .box{
+      overflow: hidden;
+      position: relative;
+      height: 545px;
+    }
+
+    .list{
+      display: flex;
+      float: left;
+      transition: 0.5s;
+    }
+
+    .list img{
+      width: 100vw;
+    }
+  </style>
+</head>
+<body>
+  <div class="box swiper-container">
+    <div class="list swiper-wrapper">
+      <div class="swiper-sdivde"><img src="imgs/img01.png"></div>
+      <div class="swiper-sdivde"><img src="imgs/img02.png"></div>
+      <div class="swiper-sdivde"><img src="imgs/img03.png"></div>
+      <div class="swiper-sdivde"><img src="imgs/img04.png"></div>
+      <div class="swiper-sdivde"><img src="imgs/img05.png"></div>
+    </div>
+  </div>
+  <script src="js/swiper.min.js"></script>
+  <script>
+
+    var swiper = new Swiper('.swiper-container',{
+      loop : true, // 无缝切换
+      direcrion: 'vertical' // 垂直切换
+    });
+
+  </script>
+</body>
+</html>

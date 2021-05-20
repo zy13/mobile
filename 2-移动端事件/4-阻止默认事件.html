@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text">
+
+<p>
+  在移动端触碰元素的时候，会立即执行元素身上的 touch 事件。
+  然后记录触碰的坐标，然后延迟一段时间再从这个坐标上去查找元素，找到元素之后
+  如果这个元素身上有 mouse 事件，则执行 mouse 事件。
+</p>
+<p>
+  在移动端触碰元素的时候，会立即执行元素身上的 touch 事件。
+  然后记录触碰的坐标，然后延迟一段时间再从这个坐标上去查找元素，找到元素之后
+  如果这个元素身上有 mouse 事件，则执行 mouse 事件。
+</p>
+<p>
+  在移动端触碰元素的时候，会立即执行元素身上的 touch 事件。
+  然后记录触碰的坐标，然后延迟一段时间再从这个坐标上去查找元素，找到元素之后
+  如果这个元素身上有 mouse 事件，则执行 mouse 事件。
+</p>
+<p>
+  在移动端触碰元素的时候，会立即执行元素身上的 touch 事件。
+  然后记录触碰的坐标，然后延迟一段时间再从这个坐标上去查找元素，找到元素之后
+  如果这个元素身上有 mouse 事件，则执行 mouse 事件。
+</p>
+<p>
+  在移动端触碰元素的时候，会立即执行元素身上的 touch 事件。
+  然后记录触碰的坐标，然后延迟一段时间再从这个坐标上去查找元素，找到元素之后
+  如果这个元素身上有 mouse 事件，则执行 mouse 事件。
+</p>
+<p>
+  在移动端触碰元素的时候，会立即执行元素身上的 touch 事件。
+  然后记录触碰的坐标，然后延迟一段时间再从这个坐标上去查找元素，找到元素之后
+  如果这个元素身上有 mouse 事件，则执行 mouse 事件。
+</p>
+<p>
+  在移动端触碰元素的时候，会立即执行元素身上的 touch 事件。
+  然后记录触碰的坐标，然后延迟一段时间再从这个坐标上去查找元素，找到元素之后
+  如果这个元素身上有 mouse 事件，则执行 mouse 事件。
+</p>
+<p>
+  在移动端触碰元素的时候，会立即执行元素身上的 touch 事件。
+  然后记录触碰的坐标，然后延迟一段时间再从这个坐标上去查找元素，找到元素之后
+  如果这个元素身上有 mouse 事件，则执行 mouse 事件。
+</p>
+<!-- 模拟a标签的跳转 -->
+<span data-href="http://www.kaikeba.com" data-add="3" >开课吧</span>
+<!-- <a href="http://www.kaikeba.com">开课吧</a> -->
+<script>
+  // 谨慎使用阻止默认事件
+  // document.addEventListener('touchend',function(e){
+  //   /*
+  //     阻止了document的默认事件的影响:
+  //     input标签无法输入文本
+  //     a标签无法跳转    
+  //   */
+  //   e.preventDefault()
+  // }, {
+  //   passive: false
+  // })
+  // 模拟a标签的跳转
+  document.addEventListener('touchend', function(e){
+    let dataset = e.target.dataset
+    for(let key in dataset) {
+      if(events[key]) {
+        events[key](dataset[key])
+      }
+    }
+  })
+  let events = {
+    href: function(value) {
+      console.log(value);
+      window.location.href = value
+    },
+    add: function(value) {
+      return value * 3
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+    }
+    body{
+      overflow: hidden;
+    }
+    .item{
+      line-height: 36px;
+    }
+    .item:nth-child(odd) {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="list"></div>
+  <script>
+    // 滑屏效果 - 模拟scroll事件
+    let list = document.querySelector('.list')
+    list.innerHTML = [...('.'.repeat(100))].map((item,index)=>{
+      return `<div class="item">这是第${index}个元素</div>`
+    }).join('')
+    
+
+    let startPoint = 0 // 手指摁下的位置
+    let transY = 0 // 手指移动的距离
+    let startY = 0 // 手指摁下时，元素的位置
+    let lastTransY = 0 // 上一次手指移动的距离
+
+    list.style.transform = 'translateY('+ lastTransY +'px)'
+
+    list.addEventListener('touchstart', function(e){
+      startPoint = e.changedTouches[0].pageY
+      startY = lastTransY
+    })
+    list.addEventListener('touchmove', function(e){
+      transY = e.changedTouches[0].pageY - startPoint
+      lastTransY = transY + startY // 上一次手指移动的距离=手指移动距离+手指摁下时，元素的位置
+      list.style.transform = 'translateY('+ lastTransY +'px)'
+    })
+  </script>
+</body>
+</html>

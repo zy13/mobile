@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 内联样式无法触发touch事件 */
+    .box{
+      display: inline;
+    }
+    .span{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <span class="span">开课吧</span>
+  <!-- <div class="box">kkkkk</div> -->
+  <script>
+    let span = document.querySelector('.span')
+    let box = document.querySelector('.box')
+    // span.onclick = function() {
+    //   console.log(99);
+    // }
+    // span.ontouchstart = function() {
+    //   console.log(99);
+    // }
+    // box.ontouchstart = function() {
+    //   console.log(777);
+    // }
+    // span.addEventListener('touchstart',function(){
+    //   console.log(11);
+    // },{
+    //   passive: false // 该监听器调用preventDefault函数来阻止默认滑动行为
+    // })
+    span.ontouchstart = function(e){
+      console.log(0, e);
+      console.log(1, e.targetTouches); // 当前元素上的手指列表
+      console.log(2, e.changedTouches); // 触发当前事件的手指列表
+      console.log(3, e.touches); // 当前屏幕中的手指列表
+    }
+  </script>
+</body>
+</html>

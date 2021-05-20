@@ -1,0 +1,12 @@
+$rem:30;
+*{
+  margin:0;
+}
+html{
+  font-size: 4vw; /*750px -> 30px*/
+  .box{
+    .item{
+      width: 80rem/$rem;
+    }
+  }
+}

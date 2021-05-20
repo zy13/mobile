@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+    }
+    .box{
+      overflow: hidden;
+    }
+    .list{
+      display: flex;
+      transition: 0.5s; /*过渡*/ 
+    }
+    img{
+      width: 100vw;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="list">
+      <div><img src="./imgs/img01.png" alt=""></div>
+      <div><img src="./imgs/img02.png" alt=""></div>
+      <div><img src="./imgs/img03.png" alt=""></div>
+      <div><img src="./imgs/img04.png" alt=""></div>
+      <div><img src="./imgs/img05.png" alt=""></div>
+    </div>
+  </div>
+  <script>
+    let list = document.querySelector('.list')
+    list.innerHTML += list.innerHTML // 复制图片，实现无缝切换
+    let num = 5 // 当前图片为第一张时，图片张数恢复到第五张图片，实现图片的无缝切换
+
+    let startPoint = 0 // 手指按下的位置
+    let transX = 0 // 手指移动的距离
+    let startX = 0 // 手指按下时，元素的位置
+    let lastTransX = 0 // 上一次手指移动的距离
+
+    let winWidth = window.innerWidth // 获取屏幕宽度
+    let percent = 0.3 // 拖动比例超过1/3, 则自动切换
+    let cur = 0 // 当前切换的图片张数
+
+    list.addEventListener('touchstart',function(e){
+      startPoit = e.changedTouches[0].pageX // 手指摁下的位置      
+
+      if(cur === 0) {
+        // 当前图片为第一张时，当前图片恢复到第五张，因为它们是同一张相片
+        cur = num
+      } else if(cur === num * 2 - 1) { 
+        // 图片为最后一张图片时候，当前图片恢复到第四张，因为它们是同一张相片
+        cur = num - 1
+      }
+      // 图片张数发生变化时候，移动距离随之改变
+      lastTransX = -cur * winWidth
+      list.style.transition = '0.5s' // 结束拖动需要过渡
+      list.style.transform = `translateX(${lastTransX}px)`
+      startX = lastTransX // 手指按下时，元素的位置 = 上一次手指移动的距离
+    })
+    list.addEventListener('touchmove',function(e){
+      transX = e.changedTouches[0].pageX - startPoit
+      lastTransX = startX + transX
+      list.style.transition = 'none' // 拖动时候不需要过渡
+      list.style.transform = `translateX(${lastTransX}px)`
+      e.preventDefault(); // 阻止默认事件
+    })
+    // 手指抬起，拖动距离超过1/3，则自动切换
+    list.addEventListener('touchend',function(e){
+      if(Math.abs(transX) > winWidth * percent) {
+        cur -= transX/Math.abs(transX)
+      }
+      transX = 0 // 手指拖动的距离需要清空
+      lastTransX = -cur * winWidth
+      list.style.transition = '0.5s' // 结束拖动需要过渡
+      list.style.transform = `translateX(${lastTransX}px)`
+    })
+  </script>
+</body>
+</html>
