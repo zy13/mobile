@@ -13,12 +13,11 @@
     .box{
       overflow: hidden;
       position: relative;
-      height: 545px;
+      /* height: 545px; */
     }
 
     .list{
       display: flex;
-      float: left;
       transition: 0.5s;
     }
 
@@ -30,11 +29,11 @@
 <body>
   <div class="box swiper-container">
     <div class="list swiper-wrapper">
-      <div class="swiper-sdivde"><img src="imgs/img01.png"></div>
-      <div class="swiper-sdivde"><img src="imgs/img02.png"></div>
-      <div class="swiper-sdivde"><img src="imgs/img03.png"></div>
-      <div class="swiper-sdivde"><img src="imgs/img04.png"></div>
-      <div class="swiper-sdivde"><img src="imgs/img05.png"></div>
+      <div class="swiper-slide"><img src="imgs/img01.png"></div>
+      <div class="swiper-slide"><img src="imgs/img02.png"></div>
+      <div class="swiper-slide"><img src="imgs/img03.png"></div>
+      <div class="swiper-slide"><img src="imgs/img04.png"></div>
+      <div class="swiper-slide"><img src="imgs/img05.png"></div>
     </div>
   </div>
   <script src="js/swiper.min.js"></script>
@@ -42,7 +41,7 @@
 
     var swiper = new Swiper('.swiper-container',{
       loop : true, // 无缝切换
-      direcrion: 'vertical' // 垂直切换
+      // direcrion: 'vertical' // 垂直切换
     });
 
   </script>
