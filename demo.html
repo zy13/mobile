@@ -6,67 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .box{
-      width: 100px;
-      height: 100px;
-      background-color: blue;
-    }
+    
   </style>
 </head>
 <body>
-  <div class="box">777</div>
-  <script>
-    let box = document.querySelector('.box')
-    // 鼠标事件
-    // click事件在移动端执行会有延迟
-    // box.addEventListener('click', function() {
-    //   console.log('click');
-    // })
-    // box.addEventListener('mouseover', function() {
-    //   console.log('over');
-    // })
-    // box.addEventListener('mousemove', function() {
-      // 在元素身上移动鼠标（抚摸事件）鼠标是否按下都不影响
-    //   console.log('move');
-    // })
-    // box.addEventListener('mousedown', function() {
-      // 在元素身上按下鼠标
-    //   console.log('down');
-    // })
-    // box.addEventListener('mouseup', function() {
-      // 在元素身上按下之后鼠标抬起
-    //   console.log('up');
-    // })
-    // box.addEventListener('mouseleave', function() {
-    //   console.log('leave');
-    // })
-
-    // 触屏事件
-    // tag相当于移动的点击
-    box.addEventListener('touchstart', function(){
-      // 手指在元素身上按下
-      console.log('start');
-    })
-    box.addEventListener('touchend', function(){
-      // 手指在元素身上按下之后，在屏幕中任意位置抬起
-      console.log('end');
-    })
-    box.addEventListener('touchmove', function(){
-      // 手指在元素身上按下之后，在屏幕中移动
-      console.log('move');
-    })
-
-  /*
-  总结：
-  touchstart 在元素身上按下
-  touchmove  手指在元素身上按下之后，在屏幕中移动
-  touchend   手指在元素身上按下之后，在屏幕中任意位置抬起
-
-  mousedown  在元素身上按下鼠标
-  mousemove  在元素身上移动鼠标（抚摸事件）鼠标是否按下都不影响
-  mouseup    在元素身上按下之后鼠标抬起
-  */
-
-  </script>
+  <div class='wrap'>
+    <div class="live">
+      视频直播
+    </div>
+    <div class="container">
+      <div class="tab">
+        <div class="li-tab"></div>
+        <div class="li-tab"></div>
+        <div class="li-tab"></div>
+        <div class="li-tab"></div>
+        <div class="li-tab"></div>
+      </div>
+      <div class="describe">
+        <div class="describe-item"></div>
+        <div class="describe-item"></div>
+        <div class="describe-item"></div>
+        <div class="describe-item"></div>
+        <div class="describe-item"></div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

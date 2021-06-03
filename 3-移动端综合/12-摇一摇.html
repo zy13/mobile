@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 100vw;
+      height: 200px;
+      background: #0a6999;
+      color: #fff;
+    }
+  </style>
+  <script src="motion.js"></script>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    let box = document.querySelector('.box')
+    function shake() {
+      alert(1)
+      let lastX = 0;
+      let lastY = 0;
+      let lastZ = 0;
+
+      let maxNum = 30;
+      let minNum = 10;
+
+      setMotion((ev)=>{
+        let {x,y,z} = ev.acceleration;
+        let nowNum = Math.abs(x - lastX) +  Math.abs(y - lastY) +  Math.abs(z - lastZ);
+        if(nowNum > maxNum){
+          box.innerHTML = '正在摇一摇';
+        }else if(nowNum < minNum){
+          box.innerHTML = '摇一摇结束';
+        }
+
+        lastX = x;
+        lastY = y;
+        lastZ = z;
+      })
+    }
+    shake()
+  </script>
+</body>
+</html>

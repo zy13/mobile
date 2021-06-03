@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background: #0a6999;
+    }
+</style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    // 防抖：事件连续频繁发生时，函数只执行一次
+    const box = document.querySelector('.box')
+
+    box.onclick = debounce(fn(1231), 2000)
+
+    function fn(...args) {
+      console.log(1, this, ...args)
+    }
+    function debounce(fn ,delay) {
+      let timer = null
+      return function(...args) {
+        const _this = this
+        if (timer) {
+          clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+          fn.call(_this, ...args)
+        }, delay)
+      }
+    }
+  </script>
+</body>
+</html>
+

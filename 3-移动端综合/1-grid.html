@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 700px;
+      height: 400px;
+      background-color: #eee;
+      display: grid; /*将整个页面划分为若干行和列，可以任意地设置单元格，比table强大*/
+      grid-template-columns: 200px 100px 300px; /*设置三列 每列宽分别为200px 100px 300px*/
+      grid-template-rows: 100px 200px; /*设置两行 高度分别为100px 200px*/
+    }
+    .item{
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <!-- 从左到右，从上到下 -->
+  <div class="box">
+    <!-- 第一个单元格 -->
+    <div class="item"></div>
+    <!-- 第二个单元格 -->
+    <div class="item"></div>
+  </div>
+</body>
+</html>

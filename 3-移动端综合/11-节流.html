@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background-color: #4f4f4f;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    // 节流
+    const box = document.querySelector('.box')
+    box.onclick = throttle(fn, 2000)
+    function fn(...args) {
+      console.log(1, this, ...args);
+    }
+    function throttle(fn, delay) {
+      let timer = null
+      let valid = true
+      return function(...args) {
+        if(!valid) {
+          return false
+        } else {
+          fn.call(this, ...args)
+          clearTimeout(timer)
+        }
+        valid = false
+        timer = setTimeout(() => {
+          valid = true
+        }, delay)
+      }
+    }
+  </script>
+</body>
+</html>

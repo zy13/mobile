@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+    }
+    .box{
+      /* width: 300px;
+      height: 500px; */
+      width: 100vw;
+      height: 100vh;
+      line-height: 100vh;
+      text-align: center;
+      color: #fff;
+      font-size: 60px;
+      background-color: coral;
+      transition: opacity 0.5s 0.2s;
+      opacity: 0;
+    }
+    @media screen and (orientation: landscape) {
+      /* 横屏 */
+      .box{
+        transition: opacity 0.5s 0.2s;
+        opacity: 1;
+        /* width: 500px;
+        height: 300px; */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    当前页面不支持横屏观看
+  </div>
+</body>
+</html>
